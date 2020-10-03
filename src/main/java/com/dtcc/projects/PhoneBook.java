@@ -39,13 +39,13 @@ public class PhoneBook {
     }
 
     public List<String> lookup(String name){
-        List<String> sendList=new ArrayList<>();
+      /*  List<String> sendList=new ArrayList<>();
         for(Map.Entry<String,List<String>> e: phoneBookMap.entrySet()){
             if(e.getKey().equalsIgnoreCase(name)){
                 sendList= e.getValue();
             }
-        }
-        return sendList;
+        }*/
+        return phoneBookMap.get(name);
     }
 
     public String reverseLookup(String phoneNumber){
@@ -58,8 +58,14 @@ public class PhoneBook {
         return strName;
     }
 
-    public Set<String> getAllContactNames(){
-        return phoneBookMap.keySet();
+    public List<String> getAllContactNames(){
+        List<String> keyList=new ArrayList<>();
+        if(phoneBookMap!=null){
+            for(String s : phoneBookMap.keySet()){
+                keyList.add(s);
+            }
+        }
+          return keyList;
     }
 
 }

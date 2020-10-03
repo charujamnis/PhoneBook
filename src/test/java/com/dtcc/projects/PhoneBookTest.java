@@ -70,21 +70,18 @@ public class PhoneBookTest {
 
     @Test
     public void testGetAllContactNames(){
-        Set<String> expectedSet=new HashSet<>();
-        Set<String> actual=new HashSet<>();
+        List<String> expectedList=new ArrayList<>();
+        List<String> actual=new ArrayList<>();
         String name1="Seema";
         String phoneNumber="123-123-4564";
-
         String name2="Shreya";
         String[] strList={"123-132-127","456-345-8934"};
-
         actual.add(name1);
         actual.add(name2);
-
         phoneBook.add(name1,phoneNumber);
         phoneBook.addAll(name2,strList);
-        expectedSet=phoneBook.getAllContactNames();
-        Assert.assertEquals(actual,expectedSet);
+        expectedList=phoneBook.getAllContactNames();
+        Assert.assertEquals(actual,expectedList);
 
     }
 
